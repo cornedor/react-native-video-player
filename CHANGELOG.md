@@ -1,4 +1,7 @@
 ## 0.10.1
+ - Updated dependency of react-native-video to 4.4.0
+ - Added 'close'-Button on Fullscreen for Android
+ - Added duration/play time for IOS (with upgrading react-native-video)
  - Fixed prop types issue on TouchableOpacity causing this package not to work on React Native v0.62.
 
 ## 0.9.1
