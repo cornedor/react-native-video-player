@@ -91,6 +91,7 @@ const styles = StyleSheet.create({
   overlayButton: {
     flex: 1,
   },
+  overlayComponentWrapper: StyleSheet.absoluteFill,
 });
 
 export default class VideoPlayer extends Component {
@@ -378,6 +379,7 @@ export default class VideoPlayer extends Component {
         ]}
         source={thumbnail}
       >
+        {this.renderOverlay()}
         {this.renderStartButton()}
       </BackgroundImage>
     );
@@ -465,6 +467,14 @@ export default class VideoPlayer extends Component {
     );
   }
 
+  renderOverlay() {
+    return this.props.renderOverlayComponent ? (
+      <View style={styles.overlayComponentWrapper}>
+        {this.props.renderOverlayComponent()}
+      </View>
+    ) : null;
+  }
+
   renderVideo() {
     const {
       video,
@@ -502,6 +512,7 @@ export default class VideoPlayer extends Component {
             { marginTop: -this.getSizeStyles().height },
           ]}
         >
+          {this.renderOverlay()}
           <TouchableOpacity
             style={styles.overlayButton}
             onPress={() => {
@@ -533,6 +544,7 @@ export default class VideoPlayer extends Component {
     } else if (!isStarted) {
       return (
         <View style={[styles.preloadingPlaceholder, this.getSizeStyles(), style]}>
+          {this.renderOverlay()}
           {this.renderStartButton()}
         </View>
       );

@@ -85,6 +85,7 @@ react-native link react-native-vector-icons
 | onHideControls          | Callback for when the controls are being hide.                                              |
 | onShowControls          | Callback for when the controls are being shown.                                             |
 | customStyles            | The player can be customized in this object, see customStyles for the options.              |
+| renderOverlayComponent  | Render an overlay component on top of the video, but under controls / play button.          |
 
 All other props are passed to the react-native-video component.
 
